@@ -2,7 +2,7 @@ from client.database.controller import ClientMessages
 from client.database.models import CBase
 
 from json import dumps, loads
-from client.client_config import ENCODING
+from client.client_cfg import ENCODING
 
 
 class DbInterfaceMixin:
