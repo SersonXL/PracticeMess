@@ -1,8 +1,8 @@
-from server.database.controller import ClientMessages
-from server.database.models import CBase
-
 from json import dumps, loads
 from server.server_cfg import ENCODING
+
+from server.database.controller import ClientMessages
+from server.database.models import CBase
 
 
 class DbInterfaceMixin:
@@ -45,6 +45,10 @@ class DbInterfaceMixin:
     def get_user_status(self, client_username):
         return self._cm.get_user_status(client_username)
 
+    def add_client_message(self, client_username, contact_username, text_msg):
+        return self._cm.add_client_message(client_username,
+                                           contact_username, text_msg)
+
 
 class ConvertMixin:
     def _dict_to_bytes(self, msg_dict):
@@ -55,7 +59,7 @@ class ConvertMixin:
         """
         # Проверям, что пришел словарь
         if isinstance(msg_dict, dict):
-            jmessage = dumps(msg_dict)  # Преобразуем словарь в json
+            jmessage = dumps(msg_dict)  # Преобразуем словарь в json-строку
             bmessage = jmessage.encode(ENCODING)  # Переводим json в байты
             return bmessage
         else:
