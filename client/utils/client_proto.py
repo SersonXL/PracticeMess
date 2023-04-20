@@ -127,7 +127,7 @@ class ChatClientProtocol(Protocol, ConvertMixin, DbInterfaceMixin):
 
         self.output = self.output_to_console
         self.output(
-"{2} connected to {0}:{1}\n".format(*self.sockname, self.user))
+            "{2} connected to {0}:{1}\n".format(*self.sockname, self.user))
 
         while True:
             content = await self.loop.run_in_executor(None, input)

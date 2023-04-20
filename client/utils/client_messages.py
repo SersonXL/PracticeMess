@@ -1,7 +1,7 @@
 from datetime import datetime as dt
-class JimClientMessage:
-    """Client's requests protocol"""
 
+
+class JimClientMessage:
     def auth(self, username, password):
         """
         Authorization message
@@ -18,6 +18,7 @@ class JimClientMessage:
                 "password": password
             }
         }
+
         return data
 
     def presence(self, sender, status="Yep, I am here!"):
@@ -98,3 +99,4 @@ class JimClientMessage:
         }
 
         return data
+

@@ -1,8 +1,8 @@
-from client.database.controller import ClientMessages
-from client.database.models import CBase
-
 from json import dumps, loads
 from client.client_cfg import ENCODING
+
+from client.database.controller import ClientMessages
+from client.database.models import CBase
 
 
 class DbInterfaceMixin:
@@ -55,7 +55,7 @@ class ConvertMixin:
         """
         # Проверям, что пришел словарь
         if isinstance(msg_dict, dict):
-            jmessage = dumps(msg_dict)  # Преобразуем словарь в json
+            jmessage = dumps(msg_dict)  # Преобразуем словарь в json-строку
             bmessage = jmessage.encode(ENCODING)  # Переводим json в байты
             return bmessage
         else:

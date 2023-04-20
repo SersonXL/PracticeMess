@@ -24,6 +24,7 @@ class ConsoleClientApp:
         # create event loop
         loop = get_event_loop()
 
+
         # authentication process
         auth = ClientAuth(db_path=self.db_path)
         while True:
@@ -141,6 +142,7 @@ def parse_and_run():
         # start GUI client
         a = GuiClientApp(args, DB_PATH)
         a.main()
+
 
 
 if __name__ == '__main__':
